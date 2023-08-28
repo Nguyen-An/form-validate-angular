@@ -18,6 +18,8 @@ export class AppComponent implements OnInit{
 
   ngAfterContentInit() {
     let Validator = this.validatorService
+
+    // Đối với trường hợp confirmed lấy HTML element của thẻ cần confirm
     let passwordRefElement = this.passwordRef.nativeElement
     
     Validator.initValidator({
@@ -37,7 +39,7 @@ export class AppComponent implements OnInit{
         Validator.isConfirmed('#password_confirmation', passwordRefElement , 'Mật khẩu nhập lại không chính xác')
       ],
       onSubmit: (data: any) => {
-        // Xử lý dữ liệu khi form được submit
+        // Xử lý dữ liệu khi form được submit(CALL API)
         console.log(data);
       }
     });

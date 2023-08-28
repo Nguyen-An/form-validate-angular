@@ -151,6 +151,7 @@ export class ValidatorService {
 
   }
 
+  // Các rules validate
   isRequired(selector: string, message?: string) {
     return {
       selector,
@@ -177,6 +178,17 @@ export class ValidatorService {
         return value.length >= min
           ? undefined
           : message || `Vui lòng nhập tối thiểu ${min} ký tự`;
+      },
+    };
+  }
+
+  maxLength(selector: string, max: number, message?: string) {
+    return {
+      selector,
+      test: (value: any) => {
+        return value.length <= max
+          ? undefined
+          : message || `Vui lòng nhập tối đa ${max} ký tự`;
       },
     };
   }
